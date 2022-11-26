@@ -1,0 +1,8 @@
+{
+    "mysql_host": "localhost",
+    "mysql_user": "root",
+    "mysql_password": "root-password",
+    "mysql_db": "auth",
+    "mysql_port": 3306,
+    "jwt_secret": "auth_secret"
+}
