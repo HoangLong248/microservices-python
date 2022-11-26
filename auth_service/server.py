@@ -57,7 +57,7 @@ def creatJWT(username, secret, authz):
         algorithm="HS256"
     )
 
-@server.route("/validate", method=["POST"])
+@server.route("/validate", methods=["POST"])
 def validate():
     encode_jwt = request.headers["Authorization"]
 
@@ -74,6 +74,6 @@ def validate():
         return "Not Authorized", 403
 
     return decoded, 200
-    
+
 if __name__ == "__main__":
     server.run(host="0.0.0.0", port=5000)
