@@ -9,22 +9,22 @@ spec:
   selector:
     matchLabels:
       app: auth
-    strategy:
-      type: RollingUpdate
-      rollingUpdate:
-        maxSurge: 3
-    template:
-      metadata:
-        labels:
-          app: auth
-      spec:
-        containers:
-        - name: auth
-          image: longtrandk101/auth-service
-          ports:
-            - containerPort: 5000
-          envFrom:
-            - configMapRef:
-              name: auth-configmap
-            - secretRef:
-              name: auth-secret
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 3
+  template:
+    metadata:
+      labels:
+        app: auth
+    spec:
+      containers:
+      - name: auth
+        image: longtrandk101/auth-service:v1.1
+        ports:
+          - containerPort: 5000
+        envFrom:
+          - configMapRef:
+            name: auth-configmap
+          - secretRef:
+            name: auth-secret
